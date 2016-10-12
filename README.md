@@ -63,9 +63,68 @@
 
 - Architektúra terv
 
-    - Oldaltérkép
-    - Végpontok
+	- Oldaltérkép
     
+		- Publikus:
+			- Főoldal
+			- Könyvek böngészése
+				+ Könyv adatainak megtekintése
+			- Belépés
+			- Regisztráció
+		- Felhasználó:
+			- Kilépés
+			- Profiladatok
+				+ Profiladatok szerkesztése
+			- Kérés felvitele
+			- Könyvek böngészése
+				+ Könyv adatainak megtekintése
+					+ Könyv kosárba tétele
+			- Kosár tartalmának listája
+				+ Kosár tartalmának módosítása
+				+ Megrendelés feladása
+		- Admin:
+			- Felhasználók listája
+			- Megrendelések/kérések listája
+				+ Megrendelés/kérés adatainak megtekintése
+					+ Státusz módosítása
+					+ Komment fűzése
+			- Új könyv felvétele
+			- Könyvek böngészése
+				+ Könyv adatainak megtekintése
+					+ Könyv adatainak módosítása
+	- Végpontok
+		- GET /: főoldal
+		- GET /login: bejelentkező oldal
+		- POST /login: bejelentkezési adatok felküldése
+		- GET /signup: regisztrációs oldal
+		- POST /signup: regisztrációs adatok felküldése
+		- GET /profile: profiladatok
+		- GET /profile/edit: profiladatok szerkesztése, ürlap megjelenítése
+		- POST /profile/edit: profiladatok szerkesztése, adatok küldése
+		- GET /books: könyvlista
+		- GET /books/:id : könyv megtekintése
+		- POST /books/:id : könyv kosárba helyezése
+		- GET /mybasket: kosár tartalma
+		- POST /mybasket/:id : törlés a kosárból
+		- POST /mybasket/checkout: rendelés feladása
+		- GET /newrequest: új kérés, ürlap megjelenítése
+		- POST /newrequest: új kérés, adatok küldése
+		- GET /myorders: megrendelések listája
+		- GET /users: felhasználók listája
+		- GET /orders: megrendelések/kérések listája
+		- GET /orders/:id : megrendelés/kérés leírása
+		- GET /orders/edit/:id : megrendelés/kérés szerkesztése, űrlap megjelenítése
+		- POST /orders/edit/:id : megrendelés/kérés szerkesztése, adatok küldése
+		- GET /books/create: új könyv, űrlap megjelenítése
+		- POST /books/create: új könyv, adatok küldése
+		- GET /books/edit/:id : könyv szerkesztése, űrlap megjelenítése
+		- POST /books/edit/:id : Könyv szerkesztése, adatok küldése
+		- POST /book/delete/:id : Könyv törlése
+		- GET /logout: kijelentkezés
+
+
+
+
 - Felhasználóifelület-modell
 
     - Oldalvázlatok
