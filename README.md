@@ -51,7 +51,7 @@
     + Admin: A felhasználó szerepkörén túl új raktáron lévő könyvet vehet fel, a könyvek adatait módosíthatja, törölheti a raktáron lévő könyveket. Felhasználók, megrendelések listáját megtekintheti. Megrendelésekhez kommentet fűzhet, állapotát átállíthatja.
 			
   - Használati esetek
-    ![Használati eset diagram](bookStore/images/haszn_eset_diag.png)
+    ![Használati eset diagram](bookStore/img/haszn_eset_diag.png)
   - Folyamatok 
 
 ##2. Tervezés
