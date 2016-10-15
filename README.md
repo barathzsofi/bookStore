@@ -12,14 +12,15 @@
     + Vendégként szeretném a legjobban keresett könyvek listáját megtekinteni a főoldalon.
     + Felhasználóként szeretnék tudni bejelentkezni
     + Felhasználóként szeretnék tudni kijelentkezni
-    + Felhasználóként szeretném a saját profilomat szerkeszteni
-    + Felhasználóként szeretnék tudni könyvet a kosárba tenni.
+    + Felhasználóként szeretném a saját profilomat szerkeszteni, törölni saját profilomat
+    + Felhasználóként szeretnék tudni könyvet a kosárba tenni, kosárból kivenni.
     + Felhasználóként szeretnék tudni könyvre kérést leadni (raktárról el nem érhető, idegen nyelvű, meghatározott kiadású stb)
     + Felhasználóként szeretném a megrendeléseim, kéréseim listáját megtekinteni, 
     + Felhasználóként szeretnék tudni az aktív kérésekhez kommentet fűzni
-    + Adminként szeretném a felhasználók listáját megtekinteni
-    + Adminként szeretném az aktuális megrendelések, kérések listáját megtekinteni, azok állapotát mósodítani, az aktívakhoz kommentet fűzni
-    + Adminként szeretnék tudni új könyvet felvenni, meglévő könyvek adatait módosítani
+    + Adminként szeretném a felhasználók listáját megtekinteni, módosítani
+    + Adminként szeretném az aktuális megrendelések, kérések listáját megtekinteni, azok szerkeszteni
+    + Adminként szeretnék tudni új könyvet felvenni, meglévő könyvek adatait módosítani, könyvet inaktívvá tenni
+    + Adminként szeretnék tudni új műfajt felvenni, műfajokat tudni törölni
     
   - Nem funkcionális követelmények
   
@@ -142,7 +143,6 @@
 			 ![Új kérés](img/request.png)
 		- Saját megrendelések listája
 			 ![Megrendelések](img/orderlist.png)
-	+ Designterv
     
 - Osztálymodell
 
@@ -152,17 +152,4 @@
 		- ![Adatbázisterv](img/adatbazisterv.png)
 	+ Állapotdiagram
 		- 
-    
-- Dinamikus működés
 
-    - Szekvenciadiagram
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
