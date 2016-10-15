@@ -10,17 +10,17 @@
     + Vendégként szeretném az elérhető könyvek adatait megnézni.
     + Vendégként elérhető könyvet között szeretnék tudni keresni.
     + Vendégként szeretném a legjobban keresett könyvek listáját megtekinteni a főoldalon.
-    + Felhasználóként szeretnék tudni bejelentkezni
-    + Felhasználóként szeretnék tudni kijelentkezni
-    + Felhasználóként szeretném a saját profilomat szerkeszteni, törölni saját profilomat
+    + Felhasználóként szeretnék tudni bejelentkezni.
+    + Felhasználóként szeretnék tudni kijelentkezni.
+    + Felhasználóként szeretném tudni szerkeszteni a saját profilomat.
     + Felhasználóként szeretnék tudni könyvet a kosárba tenni, kosárból kivenni.
     + Felhasználóként szeretnék tudni könyvre kérést leadni (raktárról el nem érhető, idegen nyelvű, meghatározott kiadású stb)
     + Felhasználóként szeretném a megrendeléseim, kéréseim listáját megtekinteni, 
     + Felhasználóként szeretnék tudni az aktív kérésekhez kommentet fűzni
     + Adminként szeretném a felhasználók listáját megtekinteni, módosítani
     + Adminként szeretném az aktuális megrendelések, kérések listáját megtekinteni, azok szerkeszteni
-    + Adminként szeretnék tudni új könyvet felvenni, meglévő könyvek adatait módosítani, könyvet inaktívvá tenni
-    + Adminként szeretnék tudni új műfajt felvenni, műfajokat tudni törölni
+    + Adminként szeretnék tudni új könyvet felvenni, meglévő könyvek adatait módosítani, könyvet törölni
+    + Adminként szeretnék tudni új műfajt felvenni, meglévőket törölni
     
   - Nem funkcionális követelmények
   
@@ -49,7 +49,7 @@
   - Szerepkörök
     + Vendég: Raktáron lévő könyvek között böngészhet, megtekintheti azok adatait.
     + Felhasználó: A vendég szerepkörön túl könyveket kosárba helyezhet, megrendelést adhat le, raktárról nem elérhető, különleges könyvek felkutatására adhat le igényt, ezzel kapcsolatban a munkatársak megjegyzéseit megtekintheti, válaszolhat rájuk, saját megrendeléseit kilistázhatja.
-    + Admin: A felhasználó szerepkörén túl új raktáron lévő könyvet vehet fel, a könyvek adatait módosíthatja, törölheti a raktáron lévő könyveket. Felhasználók, megrendelések listáját megtekintheti. Megrendelésekhez kommentet fűzhet, állapotát átállíthatja.
+    + Admin: A felhasználó szerepkörén túl új raktáron lévő könyvet vehet fel, a könyvek adatait módosíthatja, törölheti a raktáron lévő könyveket. Felhasználók, megrendelések listáját megtekintheti módosíthatja azokat. Megrendelésekhez kommentet fűzhet, állapotukat átállíthatja. Új műfajt vehet fel, meglévőt törölhet.
 			
   - Használati esetek
     	![Használati eset diagram](img/haszn_eset_diag.png)
@@ -85,14 +85,16 @@
 				+ Megrendelés feladása
 		- Admin:
 			- Felhasználók listája
+				+ Felhasználók szerkesztése
 			- Megrendelések/kérések listája
 				+ Megrendelés/kérés adatainak megtekintése
 					+ Státusz módosítása
 					+ Komment fűzése
-			- Új könyv felvétele
 			- Könyvek böngészése
+				+ Új könyv felvétele
 				+ Könyv adatainak megtekintése
-					+ Könyv adatainak módosítása
+					+ Könyv adatainak szerkesztése
+					+ Könyv törlése
 	- Végpontok
 		- GET /: főoldal
 		- GET /login: bejelentkező oldal
@@ -110,7 +112,9 @@
 		- POST /mybasket/checkout: rendelés feladása
 		- GET /newrequest: új kérés, ürlap megjelenítése
 		- POST /newrequest: új kérés, adatok küldése
-		- GET /myorders: megrendelések listája
+		- GET /myorders: megrendeléseim/kéréseim listája
+		- GET /myorders/edit/:id : megrendelésem/kérésem szerkesztése, űrlap megjelenítése
+		- POST /myorders/edit/:id : megrendelésem/kérésem szerkesztése, adatok küldése
 		- GET /users: felhasználók listája
 		- GET /orders: megrendelések/kérések listája
 		- GET /orders/:id : megrendelés/kérés leírása
