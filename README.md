@@ -127,15 +127,31 @@
 
 - Felhasználóifelület-modell
 
-    - Oldalvázlatok
-    - Designterv
+	+ Oldalvázlatok
+		- Főoldal
+			![Főoldal](img/index.png)
+		- Regisztrációs oldal
+			 ![Regisztráció](img/signUp.png)
+		- Bejelentkezés
+			 ![Bejelentkezés](img/signIn.png)
+		- Böngészés
+			 ![Böngészés](img/explorer.png)
+		- Könyv adatlapja
+			 ![Könyv](img/book.png)
+		- Kérési igény leadása
+			 ![Új kérés](img/request.png)
+		- Saját megrendelések listája
+			 ![Megrendelések](img/orderlist.png)
+	+ Designterv
     
 - Osztálymodell
 
-    - Adatmodell
-    	![Adatmodell](img/adatmodell.png)
-    - Adatbázisterv
-    - Állapotdiagram
+	+ Adatmodell
+		- ![Adatmodell](img/adatmodell.png)
+	+ Adatbázisterv
+		- ![Adatbázisterv](img/adatbazisterv.png)
+	+ Állapotdiagram
+		- 
     
 - Dinamikus működés
 
