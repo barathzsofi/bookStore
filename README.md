@@ -54,10 +54,10 @@
     	![Használati eset diagram](img/haszn_eset_diag.png)
   - Folyamatok
   	+ felhasználó:
-  		![Bejelentkezési folyamat meghatározása](img/folyamat_bejelentk.png)
-		Bejelentkezés folyamata
-		![Rendelés folyamatának meghatározása](img/folyamat_rendeles.png)
-		Rendelés folyamata
+		- Bejelentkezés folyamata
+			![Bejelentkezési folyamat meghatározása](img/folyamat_bejelentk.png)
+		- Rendelés folyamata
+			![Rendelés folyamatának meghatározása](img/folyamat_rendeles.png)
 
 ##2. Tervezés
 
@@ -133,6 +133,7 @@
 - Osztálymodell
 
     - Adatmodell
+    	![Adatmodell](img/adatmodell.png)
     - Adatbázisterv
     - Állapotdiagram
     
