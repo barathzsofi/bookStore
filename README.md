@@ -155,5 +155,8 @@
 	+ Adatbázisterv
 		- ![Adatbázisterv](img/adatbazisterv.png)
 	+ Állapotdiagram
-		- 
+		- Rendelés
+			- ![Állapotdiagram](img/allapotd_rend.png)
+		- Kérés
+			- ![Állapotdiagram](img/allapotd_keres.png)
 
