@@ -8,7 +8,6 @@
     + Vendégként szeretnék tudni regisztrálni.
     + Vendégként szeretnék az elérhető könyvek között böngészni.
     + Vendégként szeretném az elérhető könyvek adatait megnézni.
-    + Vendégként elérhető könyvet között szeretnék tudni keresni.
     + Vendégként szeretném a legjobban keresett könyvek listáját megtekinteni a főoldalon.
     + Felhasználóként szeretnék tudni bejelentkezni.
     + Felhasználóként szeretnék tudni kijelentkezni.
@@ -16,11 +15,11 @@
     + Felhasználóként szeretnék tudni könyvet a kosárba tenni, kosárból kivenni.
     + Felhasználóként szeretnék tudni könyvre kérést leadni (raktárról el nem érhető, idegen nyelvű, meghatározott kiadású stb)
     + Felhasználóként szeretném a megrendeléseim, kéréseim listáját megtekinteni, 
-    + Felhasználóként szeretnék tudni az aktív kérésekhez kommentet fűzni
-    + Adminként szeretném a felhasználók listáját megtekinteni, módosítani
-    + Adminként szeretném az aktuális megrendelések, kérések listáját megtekinteni, azok szerkeszteni
+    + Felhasználóként szeretnék tudni az aktív megrendelésekhez, kérésekhez kommentet fűzni
+    + Adminként szeretném a felhasználók listáját megtekinteni
+    + Adminként szeretném az aktuális megrendelések, kérések listáját megtekinteni, azokat szerkeszteni, törölni
     + Adminként szeretnék tudni új könyvet felvenni, meglévő könyvek adatait módosítani, könyvet törölni
-    + Adminként szeretnék tudni új műfajt felvenni, meglévőket törölni
+    + Adminként szeretnék tudni új műfajt felvenni, meglévőket szerkeszteni, törölni
     
   - Nem funkcionális követelmények
   
@@ -68,6 +67,7 @@
     
 		- Publikus:
 			- Főoldal
+				+ Könyv adatainak megtekintése
 			- Könyvek böngészése
 				+ Könyv adatainak megtekintése
 			- Belépés
@@ -76,56 +76,68 @@
 			- Kilépés
 			- Profiladatok
 				+ Profiladatok szerkesztése
-			- Kérés felvitele
+				+ Kérés felvitele
 			- Könyvek böngészése
 				+ Könyv adatainak megtekintése
 					+ Könyv kosárba tétele
 			- Kosár tartalmának listája
 				+ Kosár tartalmának módosítása
 				+ Megrendelés feladása
+			- Megrendelések/kérések listája
+				+ Megrendelés részletei
+				+ Kommentek megtekintése
+				+ Új komment
 		- Admin:
 			- Felhasználók listája
-				+ Felhasználók szerkesztése
 			- Megrendelések/kérések listája
 				+ Megrendelés/kérés adatainak megtekintése
-					+ Státusz módosítása
 					+ Komment fűzése
-			- Könyvek böngészése
+				+ Megrendelés státuszának módosítása
+				+ Megrendelés törlése
+			- Könyvek listája
 				+ Új könyv felvétele
 				+ Könyv adatainak megtekintése
 					+ Könyv adatainak szerkesztése
 					+ Könyv törlése
 	- Végpontok
 		- GET /: főoldal
+		- GET /book: könyvlista
+		- GET /book/:id : könyv megtekintése
+		- GET /bookList: könyvek listája admin számára
+		- GET /book/:id/editBook: könyv szerkesztése, űrlap megjelenítése
+		- POST /book/:id/editBook: könyv szerkesztése, adatok küldése
+		- GET /book/:id/deleteBook: könyv törlése
+		- GET /createBook: új könyv, űrlap megjelenítése
+		- POST /createBook: új könyv, adatok küldése
 		- GET /login: bejelentkező oldal
 		- POST /login: bejelentkezési adatok felküldése
+		- GET /logout: kijelentkezés
 		- GET /signup: regisztrációs oldal
 		- POST /signup: regisztrációs adatok felküldése
 		- GET /profile: profiladatok
 		- GET /profile/edit: profiladatok szerkesztése, ürlap megjelenítése
 		- POST /profile/edit: profiladatok szerkesztése, adatok küldése
-		- GET /books: könyvlista
-		- GET /books/:id : könyv megtekintése
-		- POST /books/:id : könyv kosárba helyezése
-		- GET /mybasket: kosár tartalma
-		- POST /mybasket/:id : törlés a kosárból
-		- POST /mybasket/checkout: rendelés feladása
+		- GET /orderList: megrendelések/kérések listája
+		- GET /putInBasket/:id : könyv kosárba helyezése
+		- GET /basket: kosár tartalma
+		- GET /order: megrendelés leadása
+		- GET /orderDetails/:id : megrendelés részletei
+		- POST /doComment: megrendeléshez, kéréshez komment fűzése
+		- GET /emptybasket: kosár tartalmának törlése
+		- GET /deleteFromBasket/:id : törlés a kosárból
 		- GET /newrequest: új kérés, ürlap megjelenítése
 		- POST /newrequest: új kérés, adatok küldése
-		- GET /myorders: megrendeléseim/kéréseim listája
-		- GET /myorders/edit/:id : megrendelésem/kérésem szerkesztése, űrlap megjelenítése
-		- POST /myorders/edit/:id : megrendelésem/kérésem szerkesztése, adatok küldése
+		- GET /editOrder/:id : megrendelés/kérés szerkesztése, űrlap megjelenítése
+		- POST /editOrder/:id : megrendelés/kérés szerkesztése, adatok küldése
+		- GET /editOrder/:id/delete: megrendelés törlése
 		- GET /users: felhasználók listája
-		- GET /orders: megrendelések/kérések listája
-		- GET /orders/:id : megrendelés/kérés leírása
-		- GET /orders/edit/:id : megrendelés/kérés szerkesztése, űrlap megjelenítése
-		- POST /orders/edit/:id : megrendelés/kérés szerkesztése, adatok küldése
-		- GET /books/create: új könyv, űrlap megjelenítése
-		- POST /books/create: új könyv, adatok küldése
-		- GET /books/edit/:id : könyv szerkesztése, űrlap megjelenítése
-		- POST /books/edit/:id : Könyv szerkesztése, adatok küldése
-		- POST /book/delete/:id : Könyv törlése
-		- GET /logout: kijelentkezés
+		- GET /book/category/:id : könyvek kategória szerinti szűrése
+		- GET /categoryList: kategóriák listája
+		- GET /createCategory: új kategória, űrlap megjelenítése
+		- POST /createCategory: új kategória, adatok küldése
+		- GET /categoryList/delete/:id : kategória törlése
+		- GET /categoryList/edit/:id : kategória szerkesztése, űrlap megjelenítése
+		- POST /categoryList/edit/:id : kategória szerkesztése, adatok küldése
 
 
 
