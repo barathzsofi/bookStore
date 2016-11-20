@@ -7,6 +7,7 @@
   
     + Vendégként szeretnék tudni regisztrálni.
     + Vendégként szeretnék az elérhető könyvek között böngészni.
+    + Vendégként szeretnék a könyvek között keresni szerző vagy cím megadásával.
     + Vendégként szeretném az elérhető könyvek adatait megnézni.
     + Vendégként szeretném a legjobban keresett könyvek listáját megtekinteni a főoldalon.
     + Felhasználóként szeretnék tudni bejelentkezni.
@@ -70,6 +71,7 @@
 				+ Könyv adatainak megtekintése
 			- Könyvek böngészése
 				+ Könyv adatainak megtekintése
+        + Keresés
 			- Belépés
 			- Regisztráció
 		- Felhasználó:
