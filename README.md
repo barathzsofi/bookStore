@@ -174,3 +174,102 @@
 		- Kérés
 			- ![Állapotdiagram](img/allapotd_keres.png)
 
+##3. Implementáció
+
+- Fejlesztői környezet bemutatása
+  - Lokális fejlesztés Visual Studio Code és parancssor használatával
+  - Keretrendszer: AdonisJS
+    + Telepítés előtt git: protokoll átirányítása https: -re: git config --global url."https://".insteadOf git://
+    + Keretrendszer telepítése npm i adonis-cli paranccsal
+    + Új projekt létrehozása node_modules\.bin\adonis new bookStore paranccsal
+    + cd bookStore
+    + Package.json fájlban a --harmony-proxies törlése
+    + Indítás npm start vagy npm run dev paranccsal lehetséges
+  - 
+- Könyvtárstruktúrában lévő mappák funkciójának bemutatása
+  - bookStore
+    - app
+      + Http
+        - Controllers
+          + BookController.js
+          + CategoryController.js
+          + OrderController.js
+          + UserController.js
+        - routes.js
+      + Model
+        - Book.js
+        - Category.js
+        - Comment.js
+        - Order.js
+        - Token.js
+        - User.js
+    - config
+    - database
+      + migrations
+      + seeds
+    - public
+    - resources
+      + view
+        - basket.njk
+        - book.njk
+        - bookList.njk
+        - categoryList.njk
+        - createBook.njk
+        - createCategory.njk
+        - editBook.njk
+        - editCategory.njk
+        - editOrder.njk
+        - editProfile.njk
+        - explore.njk
+        - logIn.njk
+        - master.njk
+        - newRequest.njk
+        - orderDetails.njk
+        - orderList.njk
+        - profile.njk
+        - signUp.njk
+        - userList.njk
+        - welcome.njk
+    - .env
+    - package.json
+    - README.md
+    - server.js
+      
+##5. Felhasználói dokumentáció
+
+- A futtatáshoz ajánlott hardver-, szoftver konfiguráció
+  - Futtatáshoz szükséges operációs rendszer: Tetszőleges operációs rendszer
+  - A futtatáshoz szükséges hardver: Operációs rendszerek szerint megadva
+  - Egyéb követelmények: Internet böngésző telepítése, JavaScript ajánlott
+
+- Telepítés lépései: hogyan kerül a Githubról a célgépre a program, hogyan kell elindítani
+  - Telepítés
+    - Kód letöltése
+    - git config --global url."https://".insteadOf git:// (csak a géptermekben)
+    - npm install
+    - .env.example fájl átnevezése .env-re
+    - npm run dev paranccsal futtatni
+    - localhost:3333 megnyitása
+    
+  - Express-admin adatbázis-kliens futtatása
+    - node_modules\.bin\admin config/express-admin
+    - Első futtatáskor a paraméterek beállítása
+      + a. sqlite adatbázis
+      + b. 4444-es port pl.
+      + c. username és password beállítása
+    - localhost:4444 megnyitása
+
+- A program használata
+  ####1. Böngészőben főoldal megnyitása
+  ####2. Jobb felső sarokban Regisztráció vagy Bejelentkezés feliratra kattintva tudunk bejelentkezni vagy regisztrálni. Lehetőség van adminként bejelentkezni admin@admin.hu e-mail címmel és admin jelszóval.
+  ####3. Bejelentkezést követően a saját profilunkat tekinthetjük meg. Profil szerkesztése gombra kattintva szerkeszthetjük azt, Special request gombra kattintva új kérést adhatunk le. Mindkét esetben egy-egy űrlapra jutunk, ahol a kívánt adatokat kitölthetjük, hibás adatok esetén az űrlap jelzi a hibát.
+  ####4. Bejelentkezés után a jobb felső sarokban a Kosaram és a Megrendelések, Profil, Kijelentkezés, illetve admin felhasználó esetén a Műfajok, Felhasználók, és Könyvek felaratok is megjelennek
+  ####5. Kosaram feliratra kattintva megtekinthető a kosárba helyezett könyvek, azokat törölni lehet a listáról, illetve a Kosár üritése gombbal az összes könyv törölhető a listáról. A megrendelés leadásához a Rendelés leadása gombra kell kattintani. 
+  ####6. A Megrendelések feliratra kattintva az egyszerű felhasználó a saját korábbi megrendeléseinek listáját tekintheti meg, az admin pedig az összes korábban leadott megrendelést láthatja.
+  ####7. Egy megrendelés sorára kattintva a megrendelés részletei tekinthetőek meg. Itt láthatjuk a megrendelt könyvek listáját(azokra kattintva a könyv adatlapját), a korábbi kommenteket, illetve új kommentet adhatunk, ha a megrendelés még nincs lezárva.
+  ####8. Admin felhasználó a megrendelések listájában az adott megrendeléshez tartozó sorban a Módosítás feliratra kattintva állíthatja a megrendelés állapotát a megjelenő űrlap kitöltésével, és Megrendelés törlése feliratra kattintva törölheti azt
+  ####9. Admin felhasználó a menüsorban a Műfajok feliratra kattintva kilistázza a létező műfajokat, azokat szerkesztheti illetve törölheti(Szerkesztés, Törlés feliratok), és az Új műfaj feliratú gombra kattintva új műfajt vehet fel
+  ####10. Az admin a menüsorban a Felhasználók feliratra kattintva kilistázhatja a regisztrált felhasználókat, a Könyvek feliratra kattintva pedig a könyveket. Új könyv feliratú gombra kattintva új könyvet vehet fel a megjelenő űrlap értelemszerű kitöltése után. Hibás adat esetén az űrlap jelez.
+  ####11. A könyvek listájában egy könyv sorára kattintva a könyv adatlapja jelenik meg, ahol ha az adott könyv raktáron található, akkor a kosárba helyezhető, az admin a Törlés gombbal törölheti a könyvet, a Könyv szerkesztése gombbal pedig szerkesztheti annak adatait.
+  ####12. A menüsor bal oldalán a Böngésző feliratra kattintva először az összes könyv listázódik ki. A képernyő bal oldalán a műfajok listája jelenik meg, ezek közül az egyikre kattintva az adott műfajra szűrhetjük a könyveket. A menüsor alatt középena keresőbe beírva a könyvek címében és írójának nevében kereshetünk.
+  
