@@ -58,3 +58,15 @@ Route.post('/newRequest', 'OrderController.doNewRequest').as('do_request_create'
 Route.get('/editOrder/:id', 'OrderController.editOrder').as('order_edit')
 Route.post('/editOrder/:id', 'OrderController.doEditOrder').as('do_order_edit')
 Route.get('/editOrder/:id/delete', 'OrderController.deleteOrder').as('order_delete')
+
+Route.group('ajax', function () {
+  Route.delete('/book/:id/deleteBook', 'BookController.ajaxDelete').middleware('auth'),
+  Route.delete('/categoryList/delete/:id', 'CategoryController.ajaxDelete').middleware('auth'),
+  Route.delete('/editOrder/:id/delete', 'OrderController.ajaxDelete').middleware('auth'),
+  Route.delete('/deleteFromBasket/:id', 'OrderController.ajaxDeleteFromBasket').middleware('auth')
+  Route.delete('/emptyBasket', 'OrderController.ajaxEmptyBasket').middleware('auth')
+  Route.post('/logIn', 'UserController.ajaxLogin')
+  Route.post('/book/:id/editBook', 'BookController.ajaxEditBook')
+  Route.post('/createBook', 'BookController.ajaxCreateBook')
+  Route.get('/search', 'CategoryController.ajaxSearch')
+}).prefix('/ajax')

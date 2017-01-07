@@ -16,6 +16,16 @@ class User extends Lucid {
         return this.hasMany('App/Model/Comment')  
     }
 
+ /* static get rules () {
+        return {
+            username: 'required|unique:users',
+            firstname: 'required',
+            lastname: 'required',
+            email: 'required|email|unique:users',
+            password: 'required',
+        }        
+    }*/
+
 }
 
 module.exports = User

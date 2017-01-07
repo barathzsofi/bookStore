@@ -12,15 +12,18 @@
                     <th>Szerző: cím</th>
                     <th>Ár</th>
                     <th>Raktáron</th>
+         <!--           <th>Szerk</th> -->
                     </tr>
                 </thead>
                 <tbody>
                     {% for book in books %}
+<!--                    <tr class="danger" onclick="window.document.location='/book?id={{ book.id }}';"> -->
                     <tr class="danger" onclick="window.document.location='{{ 'book_page' | route({id: book.id}) }}';">
                     <td>{{ book.id }}</td>
                     <td>{{ book.writer }}: {{ book.title }}</td>
                     <td>{{ book.price }} Ft</td>
                     <td>{{ book.numOfCopies }} Db</td>
+           <!--         <td><a href='/editBook?id={{ book.id }}'>Szerkesztés</a></td> -->
                     </tr>
                     {% endfor %}
                     

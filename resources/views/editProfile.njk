@@ -14,6 +14,7 @@
         </div>
         <div class="panel-body">
             <ul>
+      <!--       <li>   {{ old('username') }}</li> -->
             {% for error in old('errors') %}
             <li>{{ error.message }}</li>
             {% endfor %}
@@ -56,8 +57,8 @@
                 <div class="col-lg-10">
                     <input type="email" class="form-control" id="email" name = "email" placeholder="pl@pl.pl">
                 </div>
-            </div>
-        
+            </div>        
+
             <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
                     <button type="reset" class="btn btn-default">Cancel</button>
