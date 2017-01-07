@@ -235,7 +235,7 @@
     - README.md
     - server.js
       
-##5. Felhasználói dokumentáció
+##4. Felhasználói dokumentáció
 
 - A futtatáshoz ajánlott hardver-, szoftver konfiguráció
   - Futtatáshoz szükséges operációs rendszer: Tetszőleges operációs rendszer
@@ -273,7 +273,7 @@
   ####11. A könyvek listájában egy könyv sorára kattintva a könyv adatlapja jelenik meg, ahol ha az adott könyv raktáron található, akkor a kosárba helyezhető, az admin a Törlés gombbal törölheti a könyvet, a Könyv szerkesztése gombbal pedig szerkesztheti annak adatait.
   ####12. A menüsor bal oldalán a Böngésző feliratra kattintva először az összes könyv listázódik ki. A képernyő bal oldalán a műfajok listája jelenik meg, ezek közül az egyikre kattintva az adott műfajra szűrhetjük a könyveket. A menüsor alatt középena keresőbe beírva a könyvek címében és írójának nevében kereshetünk.
   
-##6. Fejlesztések
+##5. Fejlesztések
 
 - Törlés
   - érintett fájlok
@@ -322,3 +322,25 @@
   - funkció működése
     - Bootstrap Validator segítségével. 
   
+##6. Tesztelés
+
+- Tesztesetek
+  - Felhasználó létrehozása
+  - Bejelentkezés
+  - Könyv kosárba tétele
+  - Kosárból egy elem törlése
+  - Kosár ürítése
+  - Megrendelés leadása
+  - Megrendelés részleteinek megtekintése
+  - Megrendeléshez komment fűzése
+  - Profil szerkesztése
+  - Kijelentkezés
+  - Új könyv felvétele
+  - Könyv szerkesztése
+  - Könyv törlése
+  - Műfaj hozzáadása
+  - Műfaj szerkesztése
+  - Műfaj törlése
+  - Megrendelés állapotának szerkesztése
+- Tesztelési környezet
+  - Funkcionális tesztelést végzünk, melyhez Selenium-ot használunk, mely a Firefox egy bővítménye, csak ezzel a böngészővel használható. A https://addons.mozilla.org/hu/firefox/addon/selenium-ide/ oldalról tölthető le. Telepítés után böngésző eszköztárában megjelenik a bővítmény ikonka. Erre kattintva nyitható meg. Teszt Ctrl+o lenyomása után a futtatandó teszt kiválasztásával indítható el. A teszt indítása előtt érdemes a sebességet lentebb venni, amit az eszköztárnak a csúszkás elemével lehet megtenni. A teszt indítása az eszköztárnak balról a második ikonjával indítható el (Play current test case)
