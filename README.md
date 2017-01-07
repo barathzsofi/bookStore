@@ -275,13 +275,6 @@
   
 ##6. Fejlesztések
 
-- Validáció
-  - érintett fájlok
-    - kliens: createBook.njk, createCategory.njk, editBook.njk, editCategory.njk, newRequest.njk, signUp.njk
-    - szerver: 
-  - funkció működése
-    - 
-  
 - Törlés
   - érintett fájlok
     - kliens: delete.js
@@ -308,10 +301,24 @@
     - kliens: smart_categories.js
     - szerver: BookController.js
   - funkció működése
-    - 
+    - Hozzáadás gombot szúrunk be, ha az ürlap műfaj törlésére alkalmas mezőt is tartalmaz, akkor ahhoz is beszúr egy hozzáadás gombot.
+    - Mindkét esetben meghívódik az insertCategory függvény. Az első paramétere azt adja meg, hogy műfaj hozzáadására, vagy eltávolítására alkalmas listához akaronk további műfajt hozzáadni, a második pedig azt, hogy mi elé akarunk beszúrni.
+    - Submit eseménykor összeállítjuk a hozzáadandó, és a törlendő műfajok listáját. Az ajaxSubmit függvény meghívódik, kérést küldünk a szervernek.
   
 - Bejelentkezés
   - érintett fájlok
     - kliens: popup_login.js
     - szerver: UserController.js
   - funkció működése
+    - Bejelentkezés gombra kattintva modális dialógusablakot (modal) hozunk létre
+    - A modális ablakba betöltjük a bejelentkező oldalt (formContainer.load()), majd megjelenítjük a dialógusablakot ($modal.modal('show'))
+    - Submit gombra feliratkozunk
+    - Az /ajax/logIn végpontra elküldjük az ürlap tartalmát. Sikeres bejelentkezés esetén a profil oldalra lépünk.
+
+- Validáció
+  - érintett fájlok
+    - kliens: createBook.njk, createCategory.njk, editBook.njk, editCategory.njk, newRequest.njk, signUp.njk
+    - szerver: 
+  - funkció működése
+    - Bootstrap Validator segítségével. 
+  
