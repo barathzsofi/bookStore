@@ -273,3 +273,45 @@
   ####11. A könyvek listájában egy könyv sorára kattintva a könyv adatlapja jelenik meg, ahol ha az adott könyv raktáron található, akkor a kosárba helyezhető, az admin a Törlés gombbal törölheti a könyvet, a Könyv szerkesztése gombbal pedig szerkesztheti annak adatait.
   ####12. A menüsor bal oldalán a Böngésző feliratra kattintva először az összes könyv listázódik ki. A képernyő bal oldalán a műfajok listája jelenik meg, ezek közül az egyikre kattintva az adott műfajra szűrhetjük a könyveket. A menüsor alatt középena keresőbe beírva a könyvek címében és írójának nevében kereshetünk.
   
+##6. Fejlesztések
+
+- Validáció
+  - érintett fájlok
+    - kliens: createBook.njk, createCategory.njk, editBook.njk, editCategory.njk, newRequest.njk, signUp.njk
+    - szerver: 
+  - funkció működése
+    - 
+  
+- Törlés
+  - érintett fájlok
+    - kliens: delete.js
+    - szerver: BookController.js, CategoryController.js, OrderController.js, 
+  - funkció működése
+    - Műfaj törlése:
+      - A "CategoryDelete" osztályba tartozó gombra való kattintás hatására meghívódik az onDeleteCategoryClick függvény.
+      - A függvény először megállítja az elemhez kapcsolódó alapértelmezett műveletet, majd meghívja a my_confirm() függvényt, amely létrehozza a megerősító ablakot (ConfirmModal objektum). Ennek először a konstruktora hívódik meg, majd lekezeljük a felhasználó döntését. Ha az Ok gombra kattint, akkor true-val, különben false-al tér vissza.
+      - Ha a felhasználó az Ok gombra kattiontott, azaz megerősítette törlési szándékát, akkor meghívjuk az ajaxDeleteCategory() függvényt, aminek egy paramétere van, az url, ami a gomb lenyomásakkor meghívódott. Az ajaxDeleteCategory() kérést küld a servernek. A routes.js fájlban adjuk meg, hogy ha a gombhoz tartozó link ajax prefixel jelenik meg, akkor a CategoryControllernek az ajaxDelete függvénye hívódjon meg. Ez hasonlóan műkdik, mint a deleteCategory függvény.
+      - Ha a kérésre helyes a válasz (ok), akkor visszalépünk a kategóriák listájának oldalára.
+    - Könyv, megrendelés törlése, illetve a kosárból való törlés, és a kosár kiürítése hasonló módon történik.
+  
+- Keresés
+  - érintett fájlok
+    - kliens: main.js
+    - szerver: CategoryController.js
+  - funkció működése
+    - A kereső mezőbe való gépelés esetén az onSearch függvény hívódik meg.
+    - Itt először megvizsgáljuk, hogy a keresőmező nem üres-e, ha nem, akkor meghívódik az ajaxSearch függvény, melynek paramétere a keresőmező tartalma (text). Kérést küldünk a szerver felé, melynek url-je ajax/search, adata pedig a text.
+    - A szerveren a CategoryController ajaxSearch függvénye hívódik meg. Ez megkeresi azokat a könyveket, melyeknek a szerzőjére vagy címére illeszkedik a keresőmező tartalma, ezt küldi vissza, az oldalon pedig ezek kilistázódnak.
+  
+- Műfaj könyvhöz hozzáadása/elvétele
+  - érintett fájlok
+    - kliens: smart_categories.js
+    - szerver: BookController.js
+  - funkció működése
+    - 
+  
+- Bejelentkezés
+  - érintett fájlok
+    - kliens: popup_login.js
+    - szerver: UserController.js
+  - funkció működése
